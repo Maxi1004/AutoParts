@@ -32,7 +32,7 @@ app.post("/crear-transaccion", async (req, res) => {
   }
 });
 
-// ------- 3.  Levantar servidor -------------------
+
 app.listen(3001, () => {
   console.log("Servidor backend escuchando en http://localhost:3001");
 });
