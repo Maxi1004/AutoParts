@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Registro</title>
+  <link rel="stylesheet" href="css/login.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>Registrarse</h2>
+    <form id="signupForm">
+      <div class="form-group">
+        <input type="email" id="email" placeholder="Correo" required>
+      </div>
+      <div class="form-group">
+        <input type="password" id="password" placeholder="Contraseña" required>
+      </div>
+      <button type="submit">Registrarse</button>
+    </form>
+    <div class="signup-link">
+      ¿Ya tienes cuenta? <a href="login.html">Inicia Sesión</a>
+    </div>
+    <div id="error" class="error-message"></div>
+  </div>
+
+  <script type="module">
+    import { auth } from './js/firebase-init.js';
+    import { createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js';
+
+    document.getElementById('signupForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          alert("Usuario registrado correctamente");
+          window.location.href = "index.html";
+        })
+        .catch(error => {
+          console.error("Error en el registro:", error.code, error.message);
+          document.getElementById('error').textContent = error.message;
+        });
+    });
+  </script>
+</body>
+</html>

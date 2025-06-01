@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Carrito de Compras</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">AutoParts</a>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="service.html">Catálogo</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- CARRITO -->
+  <div class="container mt-5">
+    <h2 class="mb-4">Carrito de Compras</h2>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Producto</th>
+          <th>Precio</th>
+        </tr>
+      </thead>
+      <tbody id="cart-items"></tbody>
+      <tfoot>
+        <tr>
+          <th>Total</th>
+          <th id="cart-total">$0</th>
+        </tr>
+      </tfoot>
+    </table>
+
+    <div class="d-flex gap-2">
+      <button class="btn btn-danger" onclick="vaciarCarrito()">Vaciar Carrito</button>
+      <button class="btn btn-success" onclick="realizarPago()">Pagar</button>
+    </div>
+  </div>
+
+  <!-- SCRIPT -->
+  <script>
+    function cargarCarrito() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const cartItems = document.getElementById('cart-items');
+      const cartTotal = document.getElementById('cart-total');
+      let total = 0;
+
+      cartItems.innerHTML = "";
+
+      cart.forEach(item => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${item.name}</td>
+          <td>${item.price.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' })}</td>
+        `;
+        cartItems.appendChild(row);
+        total += item.price;
+      });
+
+      cartTotal.textContent = total.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' });
+    }
+
+    function vaciarCarrito() {
+      localStorage.removeItem('cart');
+      cargarCarrito();
+    }
+
+    function realizarPago() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      if (cart.length === 0) {
+        alert("Tu carrito está vacío.");
+        return;
+      }
+
+      const total = cart.reduce((sum, item) => sum + item.price, 0);
+
+      fetch("http://localhost:3001/crear-transaccion", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ monto: total })
+      })
+      .then(res => res.json())
+      .then(data => {
+        const form = document.createElement("form");
+        form.method = "POST";
+        form.action = data.url;
+
+        const input = document.createElement("input");
+        input.type = "hidden";
+        input.name = "token_ws";
+        input.value = data.token;
+
+        form.appendChild(input);
+        document.body.appendChild(form);
+        form.submit();
+      })
+      .catch(err => {
+        alert("Error al iniciar la transacción.");
+        console.error(err);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', cargarCarrito);
+  </script>
+
+</body>
+</html>

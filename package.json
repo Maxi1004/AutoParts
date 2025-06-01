@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "firebase": "^11.8.1",
+    "transbank-sdk": "^6.0.0"
+  }
+}

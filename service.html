@@ -5,106 +5,359 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Catálogo de Repuestos - AutoParts</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+  <!-- Barra de navegación -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="index.html">AutoParts</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-        data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-        aria-label="Toggle navigation">
+              data-bs-target="#navbarNav" aria-controls="navbarNav"
+              aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
           <li class="nav-item"><a class="nav-link active" href="services.html">Catálogo</a></li>
-          <li class="nav-item"><a class="nav-link" href="cart.html">Carrito</a></li>
+          <li class="nav-item"><a class="nav-link" href="carrito.html">Carrito</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
+  <!-- Contenido -->
   <div class="container mt-5">
     <h2 class="mb-4 text-center">Catálogo de Repuestos</h2>
 
-    <!-- Categoría: Motores y Componentes -->
+    <!-- ====================== MOTORES Y COMPONENTES ====================== -->
     <h4>Motores y Componentes</h4>
     <div class="row mb-4">
+      <!-- Filtro de Aceite -->
       <div class="col-md-3">
         <div class="card">
-          <img src="https://via.placeholder.com/200" class="card-img-top" alt="Filtro de Aceite">
+          <img src="img/FiltroAceiteP.png" class="card-img-top" alt="Filtro de Aceite">
           <div class="card-body">
             <h5 class="card-title">Filtro de Aceite</h5>
-            <p class="card-text">$25.990</p>
-            <button class="btn btn-primary">Agregar al carrito</button>
+            <p class="card-text">$8.990</p>
+            <button class="btn btn-primary add-to-cart"
+                    data-name="Filtro de Aceite" data-price="8990">
+              Agregar al carrito
+            </button>
           </div>
         </div>
       </div>
 
+      <!-- Filtros de aire -->
       <div class="col-md-3">
         <div class="card">
-          <img src="https://via.placeholder.com/200" class="card-img-top" alt="Bujías">
+          <img src="img/filtro de aire.png" class="card-img-top" alt="Filtros de aire">
+          <div class="card-body">
+            <h5 class="card-title">Filtros de aire</h5>
+            <p class="card-text">$16.990</p>
+            <button class="btn btn-primary add-to-cart"
+                    data-name="Filtros de aire" data-price="16990">
+              Agregar al carrito
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bujías -->
+      <div class="col-md-3">
+        <div class="card">
+          <img src="img/Bujia-Bosch.jpg" class="card-img-top" alt="Bujías">
           <div class="card-body">
             <h5 class="card-title">Bujías</h5>
-            <p class="card-text">$14.990</p>
-            <button class="btn btn-primary">Agregar al carrito</button>
+            <p class="card-text">$7.000</p>
+            <button class="btn btn-primary add-to-cart"
+                    data-name="Bujías" data-price="7000">
+              Agregar al carrito
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Correas de distribución -->
+      <div class="col-md-3">
+        <div class="card">
+          <img src="img/Correadistr.jpeg" class="card-img-top" alt="Correas de distribución">
+          <div class="card-body">
+            <h5 class="card-title">Correas de distribución</h5>
+            <p class="card-text">$12.990</p>
+            <button class="btn btn-primary add-to-cart"
+                    data-name="Correas de distribución" data-price="12990">
+              Agregar al carrito
+            </button>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Categoría: Frenos y Suspensión -->
+    <!-- ====================== FRENOS Y SUSPENSIÓN ====================== -->
     <h4>Frenos y Suspensión</h4>
     <div class="row mb-4">
+      <!-- Pastillas de Freno -->
       <div class="col-md-3">
         <div class="card">
-          <img src="https://via.placeholder.com/200" class="card-img-top" alt="Pastillas de Freno">
+          <img src="img/pasti.jpg" class="card-img-top" alt="Pastillas de Freno">
           <div class="card-body">
             <h5 class="card-title">Pastillas de Freno</h5>
+            <p class="card-text">$22.990</p>
+            <button class="btn btn-primary add-to-cart"
+                    data-name="Pastillas de Freno" data-price="22990">
+              Agregar al carrito
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Discos de Freno -->
+      <div class="col-md-3">
+        <div class="card">
+          <img src="img/discos.jpeg" class="card-img-top" alt="Discos de Freno">
+          <div class="card-body">
+            <h5 class="card-title">Discos de Freno</h5>
+            <p class="card-text">$36.990</p>
+            <button class="btn btn-primary add-to-cart"
+                    data-name="Discos de Freno" data-price="36990">
+              Agregar al carrito
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Amortiguadores -->
+      <div class="col-md-3">
+        <div class="card">
+          <img src="img/Amortiguadores.png" class="card-img-top" alt="Amortiguadores">
+          <div class="card-body">
+            <h5 class="card-title">Amortiguadores</h5>
             <p class="card-text">$39.990</p>
-            <button class="btn btn-primary">Agregar al carrito</button>
+            <button class="btn btn-primary add-to-cart"
+                    data-name="Amortiguadores" data-price="39990">
+              Agregar al carrito
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rótulas -->
+      <div class="col-md-3">
+        <div class="card">
+          <img src="img/rotulas.jpg" class="card-img-top" alt="Rótulas">
+          <div class="card-body">
+            <h5 class="card-title">Rótulas</h5>
+            <p class="card-text">$44.990</p>
+            <button class="btn btn-primary add-to-cart"
+                    data-name="Rótulas" data-price="44990">
+              Agregar al carrito
+            </button>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Categoría: Electricidad y Baterías -->
+    <!-- ====================== ELECTRICIDAD Y BATERÍAS ====================== -->
     <h4>Electricidad y Baterías</h4>
     <div class="row mb-4">
+      <!-- Alternadores -->
       <div class="col-md-3">
         <div class="card">
-          <img src="https://via.placeholder.com/200" class="card-img-top" alt="Batería 12V">
+          <img src="img/alternador.png" class="card-img-top" alt="Alternadores">
           <div class="card-body">
-            <h5 class="card-title">Batería 12V</h5>
-            <p class="card-text">$79.990</p>
-            <button class="btn btn-primary">Agregar al carrito</button>
+            <h5 class="card-title">Alternadores</h5>
+            <p class="card-text">$129.990</p>
+            <button class="btn btn-primary add-to-cart"
+                    data-name="Alternadores" data-price="129990">
+              Agregar al carrito
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Batería -->
+      <div class="col-md-3">
+        <div class="card">
+          <img src="img/Bateria.jpeg" class="card-img-top" alt="Batería">
+          <div class="card-body">
+            <h5 class="card-title">Batería</h5>
+            <p class="card-text">$99.990</p>
+            <button class="btn btn-primary add-to-cart"
+                    data-name="Batería" data-price="99990">
+              Agregar al carrito
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Luces -->
+      <div class="col-md-3">
+        <div class="card">
+          <img src="img/foco.avif" class="card-img-top" alt="Luces">
+          <div class="card-body">
+            <h5 class="card-title">Luces</h5>
+            <p class="card-text">$7.990</p>
+            <button class="btn btn-primary add-to-cart"
+                    data-name="Luces" data-price="7990">
+              Agregar al carrito
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fusibles -->
+      <div class="col-md-3">
+        <div class="card">
+          <img src="img/fusibles.jpeg" class="card-img-top" alt="Fusibles">
+          <div class="card-body">
+            <h5 class="card-title">Fusibles</h5>
+            <p class="card-text">$3.590</p>
+            <button class="btn btn-primary add-to-cart"
+                    data-name="Fusibles" data-price="3590">
+              Agregar al carrito
+            </button>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Categoría: Accesorios y Seguridad -->
+    <!-- ====================== ACCESORIOS Y SEGURIDAD ====================== -->
     <h4>Accesorios y Seguridad</h4>
     <div class="row mb-5">
+      <!-- Alarmas -->
       <div class="col-md-3">
         <div class="card">
-          <img src="https://via.placeholder.com/200" class="card-img-top" alt="Kit de Emergencia">
+          <img src="img/alarmas.png" class="card-img-top" alt="Alarmas">
+          <div class="card-body">
+            <h5 class="card-title">Alarmas</h5>
+            <p class="card-text">$30.000</p>
+            <button class="btn btn-primary add-to-cart"
+                    data-name="Alarmas" data-price="30000">
+              Agregar al carrito
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cinturones de seguridad -->
+      <div class="col-md-3">
+        <div class="card">
+          <img src="img/cinturones.jpg" class="card-img-top" alt="Cinturones de Seguridad">
+          <div class="card-body">
+            <h5 class="card-title">Cinturón seguridad retráctil 3 puntas</h5>
+            <p class="card-text">$35.500</p>
+            <button class="btn btn-primary add-to-cart"
+                    data-name="Cinturón seguridad 3 puntas" data-price="35500">
+              Agregar al carrito
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cubre asientos -->
+      <div class="col-md-3">
+        <div class="card">
+          <img src="img/cubre.jpg" class="card-img-top" alt="Cubre asientos">
+          <div class="card-body">
+            <h5 class="card-title">Cubre asientos</h5>
+            <p class="card-text">$24.500</p>
+            <button class="btn btn-primary add-to-cart"
+                    data-name="Cubre asientos" data-price="24500">
+              Agregar al carrito
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kit de Emergencia -->
+      <div class="col-md-3">
+        <div class="card">
+          <img src="img/kit de emergencia.jpg" class="card-img-top" alt="Kit de Emergencia">
           <div class="card-body">
             <h5 class="card-title">Kit de Emergencia</h5>
-            <p class="card-text">$22.500</p>
-            <button class="btn btn-primary">Agregar al carrito</button>
+            <p class="card-text">$39.990</p>
+            <button class="btn btn-primary add-to-cart"
+                    data-name="Kit de Emergencia" data-price="39990">
+              Agregar al carrito
+            </button>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <footer class="bg-dark text-white text-center py-3">
-    <p>© 2025 AutoParts. Todos los derechos reservados.</p>
-  </footer>
+  <!-- ====================== FOOTER ====================== -->
+  <div class="container-fluid bg-dark text-light footer pt-5 mt-5">
+    <div class="container py-5">
+      <div class="row g-5">
+        <div class="col-lg-3 col-md-6">
+          <h4 class="text-light mb-4">Contacto</h4>
+          <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Santiago de Chile</p>
+          <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+569 xxxx xxxx</p>
+          <p class="mb-2"><i class="fa fa-envelope me-3"></i>AutoParts@gmail.com</p>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h4 class="text-light mb-4">Atendemos de:</h4>
+          <h6 class="text-light">Lunes - Domingo:</h6>
+          <p class="mb-4">10:00 AM - 19:00 PM</p>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h4 class="text-light mb-4">Repuestos</h4>
+          <a class="btn btn-link" href="services.html">Repuestos</a>
+          <a class="btn btn-link" href="services.html">Motores</a>
+          <a class="btn btn-link" href="services.html">Frenos</a>
+          <a class="btn btn-link" href="services.html">Baterías</a>
+        </div>
+      </div>
+    </div>
 
+    <div class="container">
+      <div class="copyright">
+        <div class="row">
+          <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+            &copy; <a class="border-bottom" href="#">AutoParts</a>, Todos los derechos reservados.
+          </div>
+          <div class="col-md-6 text-center text-md-end">
+            <div class="footer-menu">
+              <a href="index.html">Home</a>
+              <a href="services.html">Catálogo</a>
+              <a href="#">Help</a>
+              <a href="#">FAQs</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================== SCRIPTS ====================== -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Script para manejar el carrito con localStorage -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const buttons = document.querySelectorAll('.add-to-cart');
+
+      buttons.forEach(button => {
+        button.addEventListener('click', () => {
+          const name  = button.getAttribute('data-name');
+          const price = parseInt(button.getAttribute('data-price'), 10);
+
+          const product = { name, price };
+
+          // Obtener carrito actual o inicializarlo vacío
+          const cart = JSON.parse(localStorage.getItem('cart')) || [];
+          cart.push(product);
+          localStorage.setItem('cart', JSON.stringify(cart));
+
+          alert(name + ' agregado al carrito.');
+        });
+      });
+    });
+  </script>
+
 </body>
 </html>
