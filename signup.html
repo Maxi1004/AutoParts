@@ -10,6 +10,9 @@
     <h2>Registrarse</h2>
     <form id="signupForm">
       <div class="form-group">
+        <input type="text" id="name" placeholder="Nombre completo" required>
+      </div>
+      <div class="form-group">
         <input type="email" id="email" placeholder="Correo" required>
       </div>
       <div class="form-group">
@@ -26,14 +29,30 @@
   <script type="module">
     import { auth } from './js/firebase-init.js';
     import { createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js';
+    import { getFirestore, doc, setDoc } from 'https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js';
+
+    const db = getFirestore();
 
     document.getElementById('signupForm').addEventListener('submit', (e) => {
       e.preventDefault();
+
+      const name = document.getElementById('name').value;
       const email = document.getElementById('email').value;
       const password = document.getElementById('password').value;
 
       createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
+        .then(async (userCredential) => {
+          const user = userCredential.user;
+
+          // Guarda en Firestore
+          await setDoc(doc(db, "usuarios", user.uid), {
+            nombre: name,
+            email: email
+          });
+
+          // Guarda en localStorage
+          localStorage.setItem("nombreUsuario", name);
+
           alert("Usuario registrado correctamente");
           window.location.href = "index.html";
         })

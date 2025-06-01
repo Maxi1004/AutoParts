@@ -17,6 +17,11 @@
       </div>
       <button type="submit">Iniciar Sesión</button>
     </form>
+
+    <div class="form-group" style="margin-top: 15px;">
+      <button onclick="window.location.href='index.html'" class="btn btn-secondary">Seguir sin iniciar sesión</button>
+    </div>
+
     <div class="signup-link">
       ¿No tienes cuenta? <a href="signup.html">Regístrate</a>
     </div>
@@ -24,22 +29,34 @@
   </div>
 
   <script type="module">
-    import { auth } from './js/firebase-init.js';
+    import { auth, db } from './js/firebase-init.js';
     import { signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js';
+    import { doc, getDoc } from 'https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js';
 
-    document.getElementById('loginForm').addEventListener('submit', (e) => {
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
       e.preventDefault();
       const email = document.getElementById('email').value;
       const password = document.getElementById('password').value;
 
-      signInWithEmailAndPassword(auth, email, password)
-        .then(() => {
-          console.log('Inicio de sesión exitoso'); 
-          window.location.href = "index.html";
-        })
-        .catch(error => {
-          document.getElementById('error').textContent = error.message;
-        });
+      try {
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+
+        // Obtener nombre desde Firestore
+        const docRef = doc(db, "usuarios", user.uid);
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+          const nombre = docSnap.data().nombre;
+          localStorage.setItem("nombreUsuario", nombre);
+        }
+
+        window.location.href = "index.html";
+
+      } catch (error) {
+        document.getElementById('error').textContent = error.message;
+        console.error("Error al iniciar sesión:", error.code, error.message);
+      }
     });
   </script>
 </body>
