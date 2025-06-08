@@ -1,0 +1,139 @@
+[
+  {
+    "nombre": "Filtro de Aceite",
+    "marca": "Bosch",
+    "categoria": "Motores y Componentes",
+    "precioPublico": 8990,
+    "precioMayorista": 6990,
+    "imagen": "img/FiltroAceiteP.png"
+  },
+   {
+    "nombre": "Filtro de Aire",
+    "marca": "Bosch",
+    "categoria": "Motores y Componentes",
+    "precioPublico": 16990,
+    "precioMayorista": 14990,
+    "imagen": "img/filtro de aire.png"
+  },
+  {
+    "nombre": "Bujías",
+    "marca": "Bosch",
+    "categoria": "Motores y Componentes",
+    "precioPublico": 7000,
+    "precioMayorista": 5500,
+    "imagen": "img/Bujia-Bosch.jpg"
+  },
+  {
+    "nombre": "Correas de distribución",
+    "marca": "Bosch",
+    "categoria": "Motores y Componentes",
+    "precioPublico": 12990,
+    "precioMayorista": 10500,
+    "imagen": "img/Correadistr.jpeg"
+  },
+  {
+    "nombre": "Pastillas de Freno",
+    "marca": "Ferodo",
+    "categoria": "Frenos y Suspensión",
+    "precioPublico": 22990,
+    "precioMayorista": 18500,
+    "imagen": "img/pasti.jpg"
+  },
+    {
+    "nombre": "Disco de freno",
+    "marca": "Bosch",
+    "categoria": "Frenos y Suspensión",
+    "precioPublico": 36990,
+    "precioMayorista": 32990,
+    "imagen": "img/discos.jpeg"
+  },  
+  {
+    "nombre": "Amortiguadores",
+    "marca": "Ferodo",
+    "categoria": "Frenos y Suspensión",
+    "precioPublico": 39990,
+    "precioMayorista": 32990,
+    "imagen": "img/Amortiguadores.png"
+  },
+  {
+    "nombre": "Rótulas",
+    "marca": "Modg",
+    "categoria": "Frenos y Suspensión",
+    "precioPublico": 44990,
+    "precioMayorista": 39990,
+    "imagen": "img/rotulas.jpg"
+  },
+  {
+    "nombre": "Alternadores ",
+    "marca": "Ferodo",
+    "categoria": "Frenos y Suspensión",
+    "precioPublico": 22990,
+    "precioMayorista": 18500,
+    "imagen": "img/pasti.jpg"
+  },
+  {
+    "nombre": "Pastillas de Freno",
+    "marca": "Bosch",
+    "categoria": "Electricidad y Baterías",
+    "precioPublico": 129990,
+    "precioMayorista": 118500,
+    "imagen": "img/alternador.png"
+  },
+  {
+    "nombre": "Bateria",
+    "marca": "Bosch",
+    "categoria": "Electricidad y Baterías",
+    "precioPublico": 99990,
+    "precioMayorista": 94990,
+    "imagen": "img/Bateria.jpeg"
+  },
+  {
+    "nombre": "Luces",
+    "marca": "Philips",
+    "categoria": "Electricidad y Baterías",
+    "precioPublico": 7990,
+    "precioMayorista": 4000,
+    "imagen": "img/foco.avif"
+  },
+  {
+    "nombre": "Fusibles",
+    "marca": "autostyle",
+    "categoria": "Electricidad y Baterías",
+    "precioPublico": 3590,
+    "precioMayorista": 2000,
+    "imagen": "img/fusibles.jpeg"
+  },
+  {
+    "nombre": "Alarmas",
+    "marca": "Bulldozer",
+    "categoria": "Accesorios y Seguridad",
+    "precioPublico": 30000,
+    "precioMayorista": 25500,
+    "imagen": "img/alarmas.png"
+  },
+  {
+    "nombre": "Cinturones de seguridad",
+    "marca": "sparco",
+    "categoria": "Accesorios y Seguridad",
+    "precioPublico": 35990,
+    "precioMayorista": 31990,
+    "imagen": "img/cinturones.jpg"
+  },
+  {
+    "nombre": "Cubre asientos",
+    "marca": "sparco",
+    "categoria": "Accesorios y Seguridad",
+    "precioPublico": 24990,
+    "precioMayorista": 20500,
+    "imagen": "img/cubre.jpg"
+  },
+  {
+    "nombre": "Kit de emergencia ",
+    "marca": "Power grid",
+    "categoria": "Accesorios y Seguridad",
+    "precioPublico": 39990,
+    "precioMayorista": 34990,
+    "imagen": "img/kit de emergencia.jpg"
+  }
+  
+]

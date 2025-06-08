@@ -41,20 +41,41 @@
       try {
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
         const user = userCredential.user;
+        const uid = user.uid;
 
-        // Obtener nombre desde Firestore
-        const docRef = doc(db, "usuarios", user.uid);
-        const docSnap = await getDoc(docRef);
+        // Buscar en 'usuarios'
+        const docRefUsuarios = doc(db, "usuarios", uid);
+        const docSnapUsuarios = await getDoc(docRefUsuarios);
 
-        if (docSnap.exists()) {
-          const nombre = docSnap.data().nombre;
-          localStorage.setItem("nombreUsuario", nombre);
+        // Si no está en 'usuarios', buscar en 'b2b_clients'
+        let datos = null;
+        if (docSnapUsuarios.exists()) {
+          datos = docSnapUsuarios.data();
+        } else {
+          const docRefB2B = doc(db, "usuarios", uid);
+          const docSnapB2B = await getDoc(docRefB2B);
+          if (docSnapB2B.exists()) {
+            datos = docSnapB2B.data();
+            datos.rol = "empresa"; // Asignar rol manual si no existe
+          }
         }
 
+        if (!datos) {
+          throw new Error("No se encontraron datos del usuario.");
+        }
+
+        const nombre = datos.nombre || datos.empresa || "Usuario";
+        const rol = datos.rol || "cliente";
+
+        // Guardar en localStorage
+        localStorage.setItem("nombreUsuario", nombre);
+        localStorage.setItem("rolUsuario", rol);
+
+        // Redirigir según rol (puedes cambiar la ruta si separas vistas)
         window.location.href = "index.html";
 
       } catch (error) {
-        document.getElementById('error').textContent = error.message;
+        document.getElementById('error').textContent = "Error: " + error.message;
         console.error("Error al iniciar sesión:", error.code, error.message);
       }
     });
